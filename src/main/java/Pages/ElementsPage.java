@@ -15,5 +15,4 @@ public class ElementsPage extends BasePage {
         super(driver, wait);
     }
 
-
 }
