@@ -17,7 +17,6 @@ public class TextBox extends BasePage{
 
 
 
-
     public WebElement getOutputMessage() {
        this.outputMessage= getDriver().findElement(By.xpath("//div[@id='output']"));
         return outputMessage;
@@ -75,7 +74,6 @@ public class TextBox extends BasePage{
         getDriver().get("https://demoqa.com/text-box");
 
     }
-
 
 
     public TextBox(WebDriver driver, WebDriverWait wait) {

@@ -1,11 +1,8 @@
 package Tests;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 
 
@@ -18,13 +15,11 @@ public class Tests extends BaseTest {
         Assert.assertTrue(getDriver().getCurrentUrl().contains("/elements"));
     }
 
-
     @Test(priority = 3)
     public void verifyCheckBoxPage() {
         getHomeCheckBox().open();
         Assert.assertTrue(getDriver().getCurrentUrl().contains("/checkbox"));
     }
-
 
     @Test(priority = 5)
     public void verifyClickabilityOfCheckBox() {
@@ -72,14 +67,12 @@ public class Tests extends BaseTest {
 
     }
 
-
     @Test(priority = 31)
     public void verifyProgressBarPage() {
         getProgressBar().openProgressBarUrl();
         Assert.assertTrue(getDriver().getCurrentUrl().contains("/progress-bar"));
 
     }
-
 
     @Test(priority = 32)
     public void verifyProgressBarFunctionality() {
@@ -120,7 +113,6 @@ public class Tests extends BaseTest {
         getBookStore().setBuyBook();
         Assert.assertTrue(getDriver().getCurrentUrl().contains("/books?book=9781449331818"));
 
-
     }
 
     @Test(priority = 48)
@@ -130,7 +122,6 @@ public class Tests extends BaseTest {
         Assert.assertTrue(getDriver().findElement(By.xpath("//div[@class='modal-content']")).isDisplayed());
         getModalDialogs().setCloseLargeModalBtn();
         Assert.assertTrue(getDriver().findElement(By.xpath("//button[@id='showLargeModal']")).isDisplayed());
-
 
     }
 
@@ -142,6 +133,15 @@ public class Tests extends BaseTest {
         getModalDialogs().setCloseSmallModalBtn();
         Assert.assertTrue(getDriver().findElement(By.xpath("//button[@id='showSmallModal']")).isDisplayed());
 
+    }
+
+    @Test(priority = 60)
+    public void verifySliderMinMaxFunctionality() {
+        getSlider().openSliderUrl();
+        getSlider().moveSliderLeftBy(100);
+        Assert.assertEquals(getSlider().getSliderValue(), 0);
+        getSlider().moveSliderRightBy(100);
+        Assert.assertEquals(getSlider().getSliderValue(), 100);
 
     }
 }

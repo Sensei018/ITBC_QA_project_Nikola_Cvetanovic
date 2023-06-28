@@ -3,13 +3,16 @@ package Tests;
 import Pages.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import java.time.Duration;
+
 
 public class BaseTest {
 
@@ -25,6 +28,8 @@ public class BaseTest {
     private Tabs tabs;
     private BookStore bookStore;
     private ModalDialogs modalDialogs;
+
+    private Slider slider;
 
 
     @BeforeClass
@@ -43,7 +48,7 @@ public class BaseTest {
         tabs = new Tabs(driver, wait);
         bookStore = new BookStore(driver, wait);
         modalDialogs = new ModalDialogs(driver, wait);
-
+        slider= new Slider(driver,wait);
 
     }
 
@@ -112,6 +117,9 @@ public class BaseTest {
         return this.modalDialogs;
     }
 
+    public Slider getSlider() {
+        return this.slider;
+    }
 
     @AfterClass
     public void cleanUp() {

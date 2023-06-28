@@ -16,7 +16,6 @@ public class BookStore extends BasePage {
         return buyBook;
     }
 
-
     public BookStore(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
